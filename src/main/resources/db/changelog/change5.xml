@@ -1,0 +1,26 @@
+<?xml version="1.1" encoding="UTF-8" standalone="no"?>
+<databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+                   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                   xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.8.xsd">
+
+    <changeSet author="generated" id="idxa780_1" objectQuotingStrategy="QUOTE_ONLY_RESERVED_WORDS">
+        <addColumn tableName="tradable">
+            <column name="uuid" type="uuid"/>
+            <column name="historical" type="BOOLEAN"/>
+        </addColumn>
+    </changeSet>
+
+    <changeSet author="generated" id="idxa780_2" objectQuotingStrategy="QUOTE_ONLY_RESERVED_WORDS">
+        <createIndex tableName="tradable" indexName="tradable_historical_idx">
+            <column name="historical"/>
+        </createIndex>
+        <createIndex tableName="tradable" indexName="tradable_uuid_idx">
+            <column name="uuid"/>
+        </createIndex>
+    </changeSet>
+
+    <changeSet author="generated" id="idxa780_5" objectQuotingStrategy="QUOTE_ONLY_RESERVED_WORDS">
+        <customChange class="in.rajesh.liquibase.IDXA780CustomTaskChange"/>
+    </changeSet>
+
+</databaseChangeLog>
