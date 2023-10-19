@@ -9,6 +9,5 @@ xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liqui
     <include file="/db/changelog/change3.xml" />
     <include file="/db/changelog/change4.sql" />
     <include file="/db/changelog/change5.xml" />
-    <include file="/db/changelog/change_cleanup.sql" />
 
 </databaseChangeLog>
