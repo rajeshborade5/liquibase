@@ -5,7 +5,7 @@
 
     <changeSet author="generated" id="idxa780_1" objectQuotingStrategy="QUOTE_ONLY_RESERVED_WORDS">
         <addColumn tableName="tradable">
-            <column name="uuid" type="uuid" defaultValueComputed="uuid_in(md5(random()::text || random()::text)::cstring)"/>
+            <column name="uuid" type="uuid" defaultValueComputed="uuid_in(overlay(overlay(md5(random()::text || ':' || random()::text) placing '4' from 13) placing to_hex(floor(random()*(11-8+1) + 8)::int)::text from 17)::cstring)"/>
             <column name="historical" type="BOOLEAN"/>
         </addColumn>
     </changeSet>
