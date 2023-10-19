@@ -5,7 +5,7 @@
 
     <changeSet author="generated" id="idxa780_1" objectQuotingStrategy="QUOTE_ONLY_RESERVED_WORDS">
         <addColumn tableName="tradable">
-            <column name="uuid" type="uuid"/>
+            <column name="uuid" type="uuid" defaultValueComputed="uuid_in(md5(random()::text || random()::text)::cstring)"/>
             <column name="historical" type="BOOLEAN"/>
         </addColumn>
     </changeSet>
@@ -17,10 +17,6 @@
         <createIndex tableName="tradable" indexName="tradable_uuid_idx">
             <column name="uuid"/>
         </createIndex>
-    </changeSet>
-
-    <changeSet author="generated" id="idxa780_5" objectQuotingStrategy="QUOTE_ONLY_RESERVED_WORDS">
-        <customChange class="in.rajesh.liquibase.IDXA780CustomTaskChange"/>
     </changeSet>
 
 </databaseChangeLog>
